@@ -5,7 +5,7 @@
             <gotags_api translate="title" module="gotags">
                 <title>Gotags</title>
                 <acl>gotags_api</acl>
-                <model>gotags/api</model>
+                <model>gotags_gotags_model_api</model>
                 <methods>
                     <search translate="title" module="gotags">
                         <title>Search items</title>

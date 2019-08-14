@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<config>
+    <api>
+        <resources>
+            <gotags_api translate="title" module="gotags">
+                <title>Gotags</title>
+                <acl>gotags_api</acl>
+                <model>gotags/api</model>
+                <methods>
+                    <search translate="title" module="gotags">
+                        <title>Search items</title>
+                        <acl>gotags_api/search</acl>
+                    </search>
+                    <addproduct translate="title" module="gotags">
+                        <title>Add product to basket</title>
+                        <acl>gotags_api/addproduct</acl>
+                    </addproduct>
+                </methods>
+                <faults module="gotags">
+                    <filters_invalid>
+                        <code>100</code>
+                        <message>Invalid filters specified. Details in error message.</message>
+                    </filters_invalid>
+                    <product_not_found>
+                        <code>102</code>
+                        <message>Product doesn't exist.</message>
+                    </product_not_found>
+                    <customer_not_found>
+                        <code>103</code>
+                        <message>Customer not found.</message>
+                    </customer_not_found>
+                    <cart_error>
+                        <code>104</code>
+                        <message>Add to cart error.</message>
+                    </cart_error>
+                    <not_supported>
+                        <code>105</code>
+                        <message>Bundle items are not supported.</message>
+                    </not_supported>
+                </faults>
+            </gotags_api>
+        </resources>
+        <acl>
+            <resources>
+                <gotags_api translate="title" module="gotags">
+                    <title>Gotags</title>
+                    <sort_order>2000</sort_order>
+                    <search translate="title" module="gotags">
+                        <title>Search items</title>
+                    </search>
+                    <addproduct translate="title" module="gotags">
+                        <title>Add product to basket</title>
+                    </addproduct>
+                </gotags_api>
+            </resources>
+        </acl>
+    </api>
+</config>

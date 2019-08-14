@@ -1,0 +1,88 @@
+<div class="content-header">
+	<h3>GOtags</h3>
+</div>
+<div>
+	<table>
+		<tr>
+			<td style="width:60%">
+				<h4>Step 1 - Enabling the SOAP API</h4>
+				<p>For GOtags to be able to communicate with your store, we need to be able to communicate via the SOAP API. To enable the SOAP API you must first create a user and role for GOtags, and then add this information to your GOtags account via the GOtags website. The video below shows the steps described below.</p>
+				<ol style="list-style-type: decimal-leading-zero; margin-left:50px;">
+					<li>In your store admin area, go to System -> Web Services -> <a href="<?php echo Mage::helper("adminhtml")->getUrl("adminhtml/api_role") ?>" target="_blank">SOAP/XML-RPC - Roles</a></li>
+					<li>
+						Click <em>Add New Role</em>
+						<ul style="list-style-type: disc; margin-left:50px;">
+							<li>Enter the Role Name, the example uses Gotags</li>
+							<li>Under Role Resources, ensure that the select entry is set to Custom</li>
+							<li>Find the Gotags checkbox and ensure both checkboxes are selected</li>
+							<li>Save the role</li>
+						</ul>
+					</li>
+					<li>Goto System -> Web Services -> <a href="<?php echo Mage::helper("adminhtml")->getUrl("adminhtml/api_user") ?>" target="_blank">SOAP/XML-RPC - Users</a></li>
+					<li>
+						Click <em>Add New User</em>
+						<ul style="list-style-type: disc; margin-left:50px;">
+							<li>Enter the require details in the form.</li>
+							<li>Ensure you use a secure username and API Key, and make a note of it - you'll need to give these details to GOtags later.</li>
+							<li>Here's a random string if you need one: <?php echo sha1('gotags_is_awesome_'.microtime()) ?></li>
+							<li>Save the user</li>
+						</ul>
+					</li>
+				</ol>
+				<h4 style="margin-top:50px">Step 2 - Connecting with GOtags</h4>
+				<p>For GOtags to be able to interact with your store, we need to know the details previously entered.</p>
+				<ol style="list-style-type: decimal-leading-zero; margin-left:50px;">
+					<li>Visit <a href="https://gotags.co.uk" target="_blank">the GOtags website</a></li>
+					<li>If you are not logged in, first connect with GOtags using your Instagram account</li>
+					<li>When logged in, go to <a href="https://gotags.co.uk/accounts" target="_blank">your accounts page</a> by clicking the link of following the link in the navigation</li>
+					<li>Click the edit icon on the account you wish to enter, it's name will be the same as your Instagram account by default</li>
+					<li>
+						In the details form, find the section "Magento Connect"
+						<ul style="list-style-type: disc; margin-left:50px;">
+							<li>Enter your domain name without any additional text (no "index.php")</li>
+							<li>Enter the username and API key previously created in Step 1</li>
+							<li>Save the form</li>
+						</ul>
+					</li>
+				</ol>
+				<h4 style="margin-top:50px">Step 3 - Check setup</h4>
+				<p>Click the below button to check your setup was successful:</p>
+				<p id="check-setup-messages"></p>
+				<a href="#" id="gotags-check" style="color: #fff; background-color: #d6443e; border-color: #cf322c; padding: 5px 10px; font-size: 16px; border-radius: 3px; margin:10px; display:inline-block">Check setup</a>
+				<script>
+					document.getElementById('gotags-check').onclick = function(event) {
+						event.preventDefault();
+						new Ajax.Request('https://gotags.co.uk/api/checkMagentoStatus', {
+							parameters: {
+								domain: location.protocol+'://'+location.host
+							},
+							method:'get',
+							requestHeaders: {Accept: 'application/json'},
+							onSuccess: function(response) {
+								if (response && response.responseJSON && response.responseJSON.code == 200) {
+									document.getElementById('check-setup-messages').innerHTML = 'All good! Setup successful';
+									document.getElementById('check-setup-messages').style.color = 'green';
+								} else {
+									document.getElementById('check-setup-messages').style.color = 'red';
+									document.getElementById('check-setup-messages').innerHTML = 'Unknown error';
+								}
+							},
+							onFailure: function(response) {
+								response.message = response.responseJSON.message ? response.responseJSON.message : 'None given [this is double bad]';
+								document.getElementById('check-setup-messages').style.color = 'red';
+								document.getElementById('check-setup-messages').innerHTML = 'Error! We couldn\'t verify your setup (error: '+response.message+')';
+							}
+						});
+					}
+				</script>
+				<h4 style="margin-top:50px">Using GOtags</h4>
+				<p>Your store should now be successfully connected with GOtags, and you can start to use GOtags within your Instagram photos. It's really simple: when uploading a picture to Instagram, simply enter the SKU code of the product into the location field, and tag @Gotags in the comment.</p>
+				<p>The rest is GOtag magic - when a user comments on your photo with "#buy" we'll try to add the item to their basket, if we can't we'll email them a link to your store product.</p>
+				<p><strong>Remember!</strong> Users can buy with options. For example, to buy jeans in size 32, and color "khaki", a user comments "#buy 32 khaki"</p>
+			</td>
+			<td style="width:40%">
+				<iframe width="560" height="315" src="https://gotags.co.uk/magento/embed" frameborder="0" allowfullscreen></iframe>
+			</td>
+		</tr>
+	</table>
+</div>

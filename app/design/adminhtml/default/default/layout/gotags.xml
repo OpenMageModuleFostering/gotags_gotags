@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <gotags_adminhtml_gotagsbackend_index>
+	<reference name="content">
+	  <block type="gotags/adminhtml_gotagsbackend" name="gotagsbackend" template="gotags/gotagsbackend.phtml"/>
+	</reference>
+  </gotags_adminhtml_gotagsbackend_index>
+</layout>

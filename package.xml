@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+    <name>GOtags_GOtags</name>
+    <version>0.0.1</version>
+    <stability>stable</stability>
+    <license uri="http://www.gnu.org/copyleft/gpl.html">GNU General Public License v3 (GPL-3)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>GOtags monazites your Instagram photos by allowing your users to buy directly from your photo pages.</summary>
+    <description>Enabling this module allows the GOtags service to provide your Instagram users the ability to buy directly from your Instagram photo pages.&#xD;
+&#xD;
+Simply connect your Instagram account with GOtags, provide us some simple details, and tag @GOtags in your photos you wish to enable and we'll do the rest!&#xD;
+&#xD;
+https://gotags.co.uk</description>
+    <notes>GOtags service is currently under beta, as such this process may change and the terms of the module may change in later versions.</notes>
+    <authors><author><name>Ashley White</name><user>gotags</user><email>hello@gotags.co.uk</email></author></authors>
+    <date>2014-07-07</date>
+    <time>11:33:54</time>
+    <contents><target name="magecommunity"><dir name="Gotags"><dir name="Gotags"><dir name="Block"><dir name="Adminhtml"><file name="Gotagsbackend.php" hash="58b9abf59a5b0cad4c1e57306c7a0d18"/></dir></dir><dir name="Helper"><file name="Data.php" hash="6423d0cda77417cabc378396a5db9dcf"/></dir><dir name="Model"><file name="Api.php" hash="a2c96072dec575e1b72da3bf061d4d7a"/></dir><dir name="controllers"><dir name="Adminhtml"><file name="GotagsbackendController.php" hash="c3097fa781ececd78d359130e163ccaa"/></dir></dir><dir name="etc"><file name="api.xml" hash="5bcbac16f44cd4d04034fcaa795e0f56"/><file name="config.xml" hash="4086c55e42511a1d40620bf713e37b1b"/></dir></dir></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="template"><dir name="gotags"><file name="gotagsbackend.phtml" hash="bdc13469149436754e4bfcca750e8d91"/></dir></dir><dir name="layout"><file name="gotags.xml" hash="244d1cf285d1d41021ceeb79b80876a8"/></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.5.0</min><max>5.5.14</max></php></required></dependencies>
+</package>

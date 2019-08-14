@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Gotags_Gotags>
+            <version>0.1.0</version>
+        </Gotags_Gotags>
+    </modules>
+    <global>
+        <helpers>
+            <gotags>
+                <class>Gotags_Gotags_Helper</class>
+            </gotags>
+        </helpers>
+        <blocks>
+            <gotags>
+                <class>Gotags_Gotags_Block</class>
+            </gotags>
+        </blocks>
+    </global>
+    <admin>
+        <routers>
+            <gotags>
+                <use>admin</use>
+                <args>
+                    <module>Gotags_Gotags</module>
+                    <frontName>gotags</frontName>
+                </args>
+            </gotags>
+        </routers>
+    </admin>
+    <adminhtml>
+        <menu>
+            <system>
+                <children>
+                    <gotagsbackend module="gotags">
+                        <title>GOtags</title>
+                        <sort_order>0</sort_order>
+                        <action>gotags/adminhtml_gotagsbackend</action>
+                    </gotagsbackend>
+                </children>
+            </system>
+        </menu>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <gotags translate="title" module="gotags">
+                            <title>Gotags</title>
+                            <sort_order>1000</sort_order>
+                        </gotags>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <gotags>
+                    <file>gotags.xml</file>
+                </gotags>
+            </updates>
+        </layout>
+    </adminhtml>
+</config> 

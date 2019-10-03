@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/GOtags_GOtags",
+    "name": "OpenMageModuleFostering\/GOtags_GOtags",
     "type": "magento-module",
     "license": "GNU-General-Public-License-v3-(GPL-3)",
     "homepage": "",
     "description": "GOtags monazites your Instagram photos by allowing your users to buy directly from your photo pages.",
     "authors": [
-    {
-        "name": "Ashley White",
-        "email": "hello@gotags.co.uk"
-    }
-],
+        {
+            "name": "Ashley White",
+            "email": "hello@gotags.co.uk"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
